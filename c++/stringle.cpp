@@ -22,6 +22,6 @@ void string_rm_add(std::string Uinput) {
 int main() {
     std::cout << "Insert any word/number or sentence.\n" << "\n";
     std::string Uinput {""};
-    std::getline(std::cin >> std::ws, Uinput);
-    string_rm_add(Uinput);
+    std::getline(std::cin >> std::ws, Uinput); // include spaces
+    string_rm_add(Uinput); // call function
 }
