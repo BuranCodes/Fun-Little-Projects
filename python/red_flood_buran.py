@@ -222,10 +222,11 @@ def playerFight(): # Fighting an enemy, and returning to gameEnd() if you lose
         if playerChoice == "fight":
             playerDamage = random.randint(0,10)
             enemyHP -= playerDamage
+            if enemyHP<0: enemyHP=0
             print("You dealt {} damage against the enemy! The enemy lost {} HP! {}".format(playerDamage, playerDamage, random.choice(playerCombat)))
             print("The enemy has currently {} HP left.".format(enemyHP))
 
-            if enemyHP <= 0:
+            if enemyHP == 0:
                 print(random.choice(enemyWin), random.choice(playerRelieved))
                 enemyLoot = random.randint(1,10)
                 playerCoins += enemyLoot
@@ -238,6 +239,7 @@ def playerFight(): # Fighting an enemy, and returning to gameEnd() if you lose
             print("Enemy dealt {} damage against you! You lost {} HP! {}".format(enemyDamage, enemyDamage, random.choice(playerHurt)))
             playerHP -= enemyDamage
             playerExhaust += enemyDamage / 2
+            if playerHP<0: playerHP=0
             print("\n")
         if playerChoice == "flee":
             playerFleeChance = random.randint(0,1)
@@ -248,6 +250,7 @@ def playerFight(): # Fighting an enemy, and returning to gameEnd() if you lose
                 print("Enemy dealt {} damage against you! You lost {} HP! {}".format(enemyDamage, enemyDamage, random.choice(playerHurt)))
                 playerHP -= enemyDamage
                 playerExhaust += enemyDamage / 2
+                if playerHP<0: playerHP=0
                 print("\n")
 
             elif playerFleeChance == 1:
@@ -271,6 +274,7 @@ def playerFight(): # Fighting an enemy, and returning to gameEnd() if you lose
                 print("Enemy dealt {} damage against you! You lost {} HP! {}".format(enemyDamage, enemyDamage, random.choice(playerHurt)))
                 playerHP -= enemyDamage
                 playerExhaust += enemyDamage / 2
+                if playerHP<0: playerHP=0
                 print("\n")
 
             elif playerSpellChance == 1:
@@ -278,6 +282,8 @@ def playerFight(): # Fighting an enemy, and returning to gameEnd() if you lose
                 print("You manage to cast a spell, thus killing the enemy! You gained {} score.".format(spellScore))
                 playerSpellDamage = 100
                 enemyHP -= playerSpellDamage
+                if enemyHP<0: enemyHP=0
+                
 
 
 def playerTavern(): # Healing, exhaustion and score system
@@ -294,7 +300,7 @@ def playerTavern(): # Healing, exhaustion and score system
         playerExhaust -= random.uniform(3.0,6.0)
         playerExhaust = round(playerExhaust, 2)
         playerHP += random.randint(2,8)
-        playerScore += 3
+        playerScore += 1
         if playerExhaust < 0: playerExhaust=0
         print("You have took a rest, your current exhaustion is {}, you have {} HP and gained 1 score, totalling to {}! You can leave now.".format(playerExhaust, playerHP, playerScore))
     elif playerTavernChoice == "n" or playerTavernChoice == "no":
@@ -302,7 +308,7 @@ def playerTavern(): # Healing, exhaustion and score system
         playerExhaust = round(playerExhaust, 2)
         playerHP += random.randint(0,2)
         playerScore += 1
-         if playerExhaust < 0: playerExhaust=0
+        if playerExhaust < 0: playerExhaust=0
         print("You had a short break. Your current exhaustion is {}, you have {} HP and gained 1 score, totalling to {}! You can leave now.".format(playerExhaust, playerHP, playerScore))
 
 def playerShop(): # Marketplace system
@@ -331,6 +337,7 @@ def playerShop(): # Marketplace system
                     if playerExhaust > 0:
                         playerCoins -= 3
                         playerExhaust -= 2.5
+                        if playerExhaust < 0: playerExhaust=0
                         print("You have bought a snack and ate it. Your current exhaustion is now {}!\n".format(playerExhaust))
 
                     elif playerExhaust <= 0:
