@@ -1,6 +1,7 @@
 #-----Red Flood-----#
 import logging
 import os
+import platform
 import random
 
 """
@@ -17,6 +18,10 @@ Version v.0.2 - Early Build
 - Removed unnecessary variables that were already used!
 
 Removed inappropriate wordings, revised text.
+
+Version v.0.3 - Revisit
+- Multi-platform support
+- Fixed bug where the exhaustion would go below zero.
 """
 
 global cls # To be used in any function.
@@ -26,7 +31,12 @@ global cls # To be used in any function.
 logging.basicConfig(filename='playerData.log', level=logging.DEBUG, format="%(asctime)s %(message)s")
 #------Logging Config
 
-cls = lambda: os.system("cls") # console wiping
+if (platform.system() == "Linux"):
+    cls = lambda: os.system("clear")
+elif (platform.system() == "Windows"):
+    cls = lambda: os.system("cls")
+elif (platform.system() == "Darwin"):
+    cls = lambda: os.system("clear")
 
 
 
@@ -61,7 +71,7 @@ enemyEscape = ("You have escaped the enemy!", "You distracted the enemy and mana
 def MainMenu():
     global playerName
     global inGameDays
-    global playerVictory
+    global playerVictoryRounds
     global playerScore
     global playerExhaust
     global playerCoins
@@ -80,7 +90,7 @@ def MainMenu():
                 input()
                 cls()
                 inGameDays = 0
-                playerVictory = 0
+                playerVictoryRounds = 0
                 playerScore = 0
                 playerExhaust = 0
                 float(playerExhaust)
@@ -123,7 +133,7 @@ def MainMenu():
 # why do I keep spamming these
 
 def gameEnd(): # Game over
-    if playerVictory >= 50:
+    if playerVictoryRounds >= 50:
         print("Well done, you have stood against the test of time! Your recorded name is {}, the score {}, last recorded exhaustion {} and longest time reached is {} days.\n".format(playerName, playerScore, round(playerExhaust, 2), inGameDays))
         input()
         cls()
@@ -139,7 +149,7 @@ def gameEnd(): # Game over
 def gamePlay(): # Actual game interface
     global playerExhaust
     global inGameDays
-    global playerVictory
+    global playerVictoryRounds
 
     print(playerIntroduction)
     input("\n Continue...")
@@ -147,10 +157,11 @@ def gamePlay(): # Actual game interface
     cls()
     print("All right!")
     while playerAlive == True:
+        playerExhaust = round(playerExhaust, 2)
         inGameDays += 1
         if playerExhaust < 0:
             playerExhaust = 0
-        if playerVictory >= 50:
+        if playerVictoryRounds >= 50:
             break
         try:
             print("\nYou have currently {} HP and {} exhaustion, {} coins. It's been {} days. Please pick the choice:\n1 Fight\n2 Tavern\n3 Shop".format(playerHP, playerExhaust, playerCoins, inGameDays))
@@ -161,19 +172,19 @@ def gamePlay(): # Actual game interface
                     print("You are too exhausted to fight!")
 
                 elif playerExhaust < 20:
-                    playerVictory += 1
+                    playerVictoryRounds += 1
                     cls()
                     print("\n\n")
                     playerFight()
 
             elif playerMove == 2:
-                playerVictory += 1
+                playerVictoryRounds += 1
                 cls()
                 print("\n\n")
                 playerTavern()
 
             elif playerMove == 3:
-                playerVictory += 1
+                playerVictoryRounds += 1
                 cls()
                 print ("\n\n")
                 playerShop()
@@ -183,7 +194,7 @@ def gamePlay(): # Actual game interface
             print("Please try using a number only!")
     if playerAlive == False:
         gameEnd()
-    if playerVictory >= 50:
+    if playerVictoryRounds >= 50:
         gameEnd()
 
 def playerFight(): # Fighting an enemy, and returning to gameEnd() if you lose
@@ -283,13 +294,15 @@ def playerTavern(): # Healing, exhaustion and score system
         playerExhaust -= random.uniform(3.0,6.0)
         playerExhaust = round(playerExhaust, 2)
         playerHP += random.randint(2,8)
-        playerScore += 1
+        playerScore += 3
+        if playerExhaust < 0: playerExhaust=0
         print("You have took a rest, your current exhaustion is {}, you have {} HP and gained 1 score, totalling to {}! You can leave now.".format(playerExhaust, playerHP, playerScore))
     elif playerTavernChoice == "n" or playerTavernChoice == "no":
         playerExhaust -= random.uniform(1.0,2.0)
         playerExhaust = round(playerExhaust, 2)
         playerHP += random.randint(0,2)
         playerScore += 1
+         if playerExhaust < 0: playerExhaust=0
         print("You had a short break. Your current exhaustion is {}, you have {} HP and gained 1 score, totalling to {}! You can leave now.".format(playerExhaust, playerHP, playerScore))
 
 def playerShop(): # Marketplace system
