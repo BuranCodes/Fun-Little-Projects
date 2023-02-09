@@ -7,7 +7,7 @@
 
 
 int packagingTimeLILO(std::vector<int> packages, const int n) {
-    if (packages.empty()) return 0;
+    if (packages.empty()) return 0; // avoid dereferencing a NULL pointer
     else if (n > packages.size()) return *std::max_element(packages.begin(),packages.end());
     int minutes {0};
     std::vector<int> boxes(packages.rbegin(), packages.rbegin()+n); //! LILO
@@ -18,7 +18,7 @@ int packagingTimeLILO(std::vector<int> packages, const int n) {
         *std::min_element(boxes.begin(),boxes.end()) += packages.back();
         packages.pop_back();
     }
-    minutes = *std::max_element(boxes.begin(), boxes.end());
+    minutes = *std::max_element(boxes.cbegin(), boxes.cend());
     return minutes;
 
 }
@@ -35,16 +35,16 @@ int packagingTimeFIFO(std::vector<int> packages, int n) {
         *std::min_element(boxes.begin(),boxes.end()) += packages.front();
         packages.erase(packages.begin());
     }
-    minutes = *std::max_element(boxes.begin(), boxes.end());
+    minutes = *std::max_element(boxes.cbegin(), boxes.cend());
     return minutes;
 
 }
 
 int main() {
-    std::vector<int> packages {1,5,7,2,8,12,15,3,8,12}; 
+    std::vector<int> packages {1,5,7,2,8,12,15,3,8,12}; // each value is time it takes to pack inside a box
     const int n = 3;
     int input;
-    std::cout << "All packages:";
+    std::cout << "All packages with time it takes to pack:";
     for (int x : packages) {
         std::cout << " " << x;
     }
@@ -58,5 +58,5 @@ int main() {
 }
 
 /*
-    This program determines, based on given the queue order, how much time it takes to finish putting packages in nth boxes.
+    This program determines, based on given the queue order, how much time it takes to finish packing packages in nth boxes. Each value in vector packages is the amount of time.
 */
