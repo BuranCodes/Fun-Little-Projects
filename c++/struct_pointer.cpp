@@ -1,8 +1,9 @@
+// Example program of accessing struct members with smart pointers 
 #include <iostream>
 #include <memory>
 
 
-struct Test { // * recommended to use struct instead of arrays due to different variable types and public
+struct Test {
     
     int health = 50;
     int atk = 25;
