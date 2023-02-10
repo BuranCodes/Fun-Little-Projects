@@ -7,5 +7,5 @@
 - Basic string censor with regex
 - Packaging problem (queue problem)
 - Learning how to use pointers to access struct members and change variables
-#### Python
+#### Python:
 - Red Flood, a python game I made back then in 2021 when I didn't have much coding experience
