@@ -1,4 +1,5 @@
-// Fun little projects by Buran No. 1
+// Buran
+// "String triangle" (Step by step concatenation)
 #include <iostream>
 #include <string>
 #include <vector>

@@ -1,3 +1,5 @@
+// Buran
+// Basic string censor with regex
 #include <iostream>
 #include <string>
 #include <regex>

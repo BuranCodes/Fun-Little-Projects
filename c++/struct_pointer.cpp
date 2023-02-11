@@ -1,3 +1,4 @@
+// Buran
 // Example program of accessing struct members with smart pointers 
 #include <iostream>
 #include <memory>
