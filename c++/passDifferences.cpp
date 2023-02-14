@@ -2,7 +2,6 @@
 // A program to illustrate the difference between passing a value/parameter to function, a reference and a (smart) pointer.
 
 #include <iostream>
-#include <memory>
 
 void passByParam(int a, int b) {
     a = 8;
