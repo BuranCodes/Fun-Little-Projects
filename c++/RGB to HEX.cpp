@@ -33,13 +33,13 @@ std::string RGBtoHEX(int rgb[3]) {
 
 int main() {
     int rgb[3] = {255, 255, 255};
-    std::cout << "Hexadecimal values for the first iteration: #" << RGBtoHEX(rgb) << "\n";
+    std::cout << "Hexadecimal values for the first iteration: #" << RGBtoHEX(rgb) << "\n"; // #FFFFFF
     rgb[2] = 300;
-    std::cout << "Hexadecimal values for the second iteration: #" << RGBtoHEX(rgb) << "\n";
+    std::cout << "Hexadecimal values for the second iteration: #" << RGBtoHEX(rgb) << "\n"; // #FFFFFF
     rgb[0] = 0; rgb[1] = 0; rgb[2] = 0;
-    std::cout << "Hexadecimal values for the third iteration: #" << RGBtoHEX(rgb) << "\n";
+    std::cout << "Hexadecimal values for the third iteration: #" << RGBtoHEX(rgb) << "\n"; // #000000
     rgb[0] = 148; rgb[2] = 211;
-    std::cout << "Hexadecimal values for the fourth iteration: #" << RGBtoHEX(rgb) << "\n";
+    std::cout << "Hexadecimal values for the last iteration: #" << RGBtoHEX(rgb) << "\n"; // #9400D3
 
 
 
