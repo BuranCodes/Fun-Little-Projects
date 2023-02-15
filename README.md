@@ -7,5 +7,7 @@
 - Basic string censor with regex
 - Packaging problem (queue problem)
 - Learning how to use pointers to access struct members and change variables
+- Learning the differences between passing by value/parameters, by reference(s) and by pointer(s).
+- RGB to hexadecimal conversion as part of Discord server coding challenge
 #### Python:
 - Red Flood, a python game I made back then in 2021 when I didn't have much coding experience
