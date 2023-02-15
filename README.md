@@ -1,5 +1,5 @@
 # Fun little projects
- A collection of the fun little projects anyone can post here!
+ A collection of the fun little projects anyone can post and write here!
  ### Rule:
  - Your source file has to have your (user)name and name of the program or a short description.
  #### C++:
