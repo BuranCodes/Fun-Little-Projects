@@ -10,4 +10,4 @@
 - Learning the differences between passing by value/parameters, by reference(s) and by pointer(s).
 - RGB to hexadecimal conversion as part of Discord server coding challenge
 #### Python:
-- Red Flood, a python game I made back then in 2021 when I didn't have much coding experience
+- Red Flood, a prototype console game made in 2021
