@@ -9,6 +9,7 @@
 - Learning how to use pointers to access struct members and change variables
 - Learning the differences between passing by value/parameters, by reference(s) and by pointer(s).
 - RGB to hexadecimal conversion as part of Discord server coding challenge
+- RSA encoder / decoder
 
 #### Python:
 - RSA encoder / decoder
