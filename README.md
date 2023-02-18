@@ -11,7 +11,6 @@
 - RGB to hexadecimal conversion as part of Discord server coding challenge
 
 #### Python:
-- Red Flood, a prototype console game made in 2021
 - RSA encoder / decoder
 
 ### How to run:
