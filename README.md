@@ -18,6 +18,7 @@
 ### How to run:
 Disclaimer: I might or might not have covered everything ^^'
 
-C++: Make sure you have latest C++ compiler installed. To run with GCC in Windows terminal: `g++ .\[c++ executable]`. For Linux terminals: `g++ ./[c++ executable]`
+C++: Make sure you have latest C++ compiler installed. To run executables in Windows terminal: `.\[c++ executable]`. For Linux terminals: `./[c++ executable]`. 
 
-Python: Make sure you have latest Python installed, then in your terminal, do `python [pythonfile]`.
+
+Python: Make sure you have latest Python installed. To run Python scripts in your terminal, do `python [pythonfile]`.
