@@ -10,6 +10,7 @@
 - Learning the differences between passing by value/parameters, by reference(s) and by pointer(s).
 - RGB to hexadecimal conversion as part of Discord server coding challenge
 - RSA encoder / decoder
+- Simple Windows message box
 
 #### Python:
 - RSA encoder / decoder
