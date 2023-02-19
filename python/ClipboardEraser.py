@@ -1,9 +1,8 @@
 # Buran
-# Automatic clipboard eraser with three methods
+# Clear clipboard / last copied element with every paste
 
 import pyperclip
 import keyboard
-import logging
 
 
 # The method: Clear after one paste, special thanks to 404_beef on Discord
@@ -15,5 +14,18 @@ def clear_clipboard(e):
     if line == "29, 47": # 29 is CTRL, 47 is V
         pyperclip.copy('') # clipboard cleared
 
-keyboard.hook(clear_clipboard)
-keyboard.wait() 
+
+def main():
+    keyboard.hook(clear_clipboard)
+    keyboard.wait()
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('Killing the script...')
+        try:
+            exit(130)
+        except SystemExit:
+            exit(130)
