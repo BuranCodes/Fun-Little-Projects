@@ -2,6 +2,10 @@
  A collection of the fun little projects anyone can post and write here!
  ### Rule:
  - Your source file has to have your (user)name and name of the program or a short description.
+ 
+ #### C:
+ - Learning about command line arguments. Number of arguments, the argument supplied.
+ 
  #### C++:
 - Deleting a string's character step by step until empty and then adding back characters until normal again (concatenation basically).
 - Basic string censor with regex
