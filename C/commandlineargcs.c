@@ -1,3 +1,5 @@
+// Buran
+// Command line arguments
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
