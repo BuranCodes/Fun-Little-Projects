@@ -3,6 +3,7 @@
  
  #### C:
  - Learning about command line arguments. Number of arguments, the argument supplied.
+ - Undefined behaviour with variables
  - Passing pointer to pointer to string, strcpy, type casting 
  
  #### C++:
