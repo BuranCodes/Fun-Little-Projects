@@ -1,10 +1,9 @@
 # Fun little projects
- A collection of the fun little projects anyone can post and write here!
- ### Rule:
- - Your source file has to have your (user)name and name of the program or a short description.
+ A collection of the fun little projects I do!
  
  #### C:
  - Learning about command line arguments. Number of arguments, the argument supplied.
+ - Passing pointer to pointer to string, strcpy, type casting 
  
  #### C++:
 - Deleting a string's character step by step until empty and then adding back characters until normal again (concatenation basically).
