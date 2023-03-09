@@ -5,13 +5,13 @@
 #include <string.h>
 
 void test(const char** s) {
-    char* news = (char*) malloc(strlen(*s)+1); // or char news[strlen(*s)+1];
-    strcpy(news, *s);
-    printf("%s\n", news);
+        char* ns = (char*) malloc(strlen(*s)+1); // or char ns[strlen(*s)+1];
+        strcpy(ns, *s);
+        printf("%s\n", ns);
 };
 
 int main(void) {
-const char* something = "this is fun!";
-const char** point = &something;
-test(point);
+        const char* something = "this is fun!";
+        const char** ptr = &something;
+        test(ptr);
 }
